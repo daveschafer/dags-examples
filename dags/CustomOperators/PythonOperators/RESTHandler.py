@@ -13,7 +13,7 @@ def storeToCSV(content, isJSON=False):
         df = pd.DataFrame(json.loads(content))
     df = df.set_index("school_year")
 
-    df.to_csv("/home/dave/airflow/temp/drivers2.csv", sep=",", escapechar="\\", quoting=csv.QUOTE_NONE, encoding="utf-8")
+    df.to_csv("/tmp/drivers2.csv", sep=",", escapechar="\\", quoting=csv.QUOTE_NONE, encoding="utf-8")
     logger.info("Task 'storeToCSV' done")
 
 
