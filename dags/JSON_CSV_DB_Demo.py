@@ -94,7 +94,7 @@ def loadDataIntoTable():
     cursor = pg_conn.cursor()
 
     # insert each csv row as a record in our database
-    with open("/home/dave/airflow/temp/drivers2.csv", "r") as f:
+    with open("/tmp/drivers2.csv", "r") as f:
         print("Now loading data into drivers_data2 table")
         next(f)  # skip the first row (header)
         for row in f:
@@ -145,8 +145,8 @@ def receiveModifyAndExport2CSV(ti):
     #remove messy newline chars
     drivers_data = drivers_data.replace(r'\n',' ', regex=True) 
     #write to a new "processed csv"
-    drivers_data.to_csv("/home/dave/airflow/temp/drivers2_processed.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
-    logger.info("CSV Exportet to: '/home/dave/airflow/temp/drivers2_processed.csv'")
+    drivers_data.to_csv("/tmp/drivers2_processed.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
+    logger.info("CSV Exportet to: '/tmp/drivers2_processed.csv'")
 
 # Dynamic function with param
 def dynamicFunction(parameter):
